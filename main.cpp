@@ -4,6 +4,7 @@
 #include <random>
 #include "KMeans.h"
 
+
 int main(int argc, char* argv[]) {
     // 检查命令行参数
     if (argc < 9) {
@@ -51,7 +52,13 @@ int main(int argc, char* argv[]) {
 
     // 运行K-means聚类算法
     std::vector<int> labels = KMeans::run(data, n, k_min, k_max, max_iter, discard_threshold, distance_type);
-
+    #ifdef DEBUG
+    std::cout << "labels: " << std::endl;
+    for (int i = 0; i < n; ++i) {
+        std::cout << labels[i] << " ";
+    }
+    std::cout << std::endl;
+    #endif
     // 将聚类结果写入输出文件
     std::ofstream output(outputFile);
     if (!output) {
