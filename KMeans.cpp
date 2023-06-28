@@ -26,14 +26,14 @@ int KMeans::findNearestCluster(const std::vector<double>& v, const std::vector<s
     return nearestCluster;
 }
 
-std::vector<int> KMeans::run(const std::vector<std::vector<double>>& data, int k_min, int k_max, int max_iter) {
-    std::vector<int> labels(data.size(), -1);
+std::vector<int> KMeans::run(const std::vector<std::vector<double>>& data, int n, int k_min, int k_max, int max_iter) {
+    std::vector<int> labels(n, -1);
     std::vector<std::vector<double>> centroids(k_min);
 
     // 从数据点中随机选择初始质心
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> dis(0, data.size() - 1);
+    std::uniform_int_distribution<int> dis(0, n - 1);
 
     for (int i = 0; i < k_min; ++i) {
         centroids[i] = data[dis(gen)];
@@ -45,7 +45,7 @@ std::vector<int> KMeans::run(const std::vector<std::vector<double>>& data, int k
         std::vector<std::vector<double>> newCentroids(k_min, std::vector<double>(data[0].size(), 0.0));
 
         // 将每个数据点分配到最近的质心
-        for (int i = 0; i < data.size(); ++i) {
+        for (int i = 0; i < n; ++i) {
             int nearestCluster = findNearestCluster(data[i], centroids);
             labels[i] = nearestCluster;
             clusterSizes[nearestCluster]++;
