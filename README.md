@@ -12,14 +12,12 @@
 ## 使用方法
 1. 编译源代码：
 ```
-g++ main.cpp KMeans.cpp -o kmeans
+g++ -std=c++11  main.cpp KMeans.cpp -o kmeans
 ```
 
 2. 运行可执行文件：
 ```
+# Usage: ./kmeans <data_file> <output_file> <n> <vector_size> <k_min> <k_max> <max_iter>
 ./kmeans
 ```
 
-3. 根据程序提示，依次输入向量数量、聚类中心最小个数、聚类中心最大个数、最大迭代次数等参数。
-
-4. 根据需求输入每个向量的数据，共n个长度为192的向量。
