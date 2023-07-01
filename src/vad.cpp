@@ -50,6 +50,7 @@ int main(int argc, char *argv[]) {
     WaveReader reader(wav_in.c_str(), 1, 16);
 
     int sample_rate = reader.SampleRate();
+    
     #ifdef DEBUG
     std::cout << "sample rate: " << sample_rate << std::endl;
     #endif

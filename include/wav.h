@@ -103,7 +103,7 @@ public:
         fwrite(&format_tag, 1, sizeof(short), fp); // format tag
         short channels = num_channel_;
         fwrite(&channels, 1, sizeof(short), fp); // channels
-        int samples_per_sec = 8000;
+        int samples_per_sec = 16000;
         fwrite(&samples_per_sec, 1, sizeof(int), fp); // samples per sec
         int bytes_per_sec = samples_per_sec * num_channel_ * (bit_depth_ / 8);
         fwrite(&bytes_per_sec, 1, sizeof(int), fp); // bytes per sec

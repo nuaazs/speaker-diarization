@@ -1,0 +1,11 @@
+./test_output/1.390000_4.845000.wav,0
+./test_output/33.989998_36.535000.wav,1
+./test_output/39.309998_40.875000.wav,2
+./test_output/41.779999_46.945000.wav,3
+./test_output/49.730000_50.904999.wav,4
+./test_output/52.090000_61.545002.wav,5
+./test_output/65.549995_67.474998.wav,6
+./test_output/67.989998_72.504997.wav,7
+./test_output/7.440000_28.294998.wav,8
+./test_output/74.500000_79.184998.wav,9
+./test_output/80.489998_88.235001.wav,10
