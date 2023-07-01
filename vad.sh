@@ -14,9 +14,9 @@ FILE_NAME=$(basename $1)_$(date +%s%N).bin
 
 # extract pcm data from wav file
 # use ffmpeg merge 2 channel wav to 1 channel
-ffmpeg -i $1 -ac 1 -ar 8000 $(basename $1)_1c.wav -y > /dev/null 2>&1
+ffmpeg -i $1 -ac 1 -ar 16000 $(basename $1)_1c.wav -y > /dev/null 2>&1
 
-ffmpeg -i $(basename $1)_1c.wav -f s16le -acodec pcm_s16le -ar 8000 -map_metadata -1 -y ${FILE_NAME} > /dev/null 2>&1
+ffmpeg -i $(basename $1)_1c.wav -f s16le -acodec pcm_s16le -ar 16000 -map_metadata -1 -y ${FILE_NAME} > /dev/null 2>&1
 
 rm -rf $(basename $1)_1c.wav
 
