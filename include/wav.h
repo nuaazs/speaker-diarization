@@ -61,7 +61,7 @@ public:
     int NumChannel() const { return num_channel_; }
     int BitDepth() const { return bit_depth_; }
     int NumSample() const { return num_sample_; }
-    int SampleRate() const { return (int)8000; }
+    int SampleRate() const { return (int)16000; }
     int BitsPerSample() const { return (int)16; }
 
     ~WaveReader() {
