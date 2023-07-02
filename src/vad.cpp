@@ -24,25 +24,24 @@ int main(int argc, char *argv[]) {
     float energy_thresh = 1.5e7;
     po.Register("energy-thresh", &energy_thresh, 
             "energy threshold for energy based vad");
-    int sil_to_speech_trigger = 3;
+    int sil_to_speech_trigger = 10;
     po.Register("sil-to-speech-trigger", &sil_to_speech_trigger,
             "num frames for silence to speech trigger");
-    int speech_to_sil_trigger = 10;
+    int speech_to_sil_trigger = 3;
     po.Register("speech-to-sil-trigger", &speech_to_sil_trigger,
             "num frames for speech to silence trigger");
 
     po.Read(argc, argv);
 
-    if (po.NumArgs() != 5) {
+    if (po.NumArgs() != 4) {
         po.PrintUsage();
         exit(1);
     }
 
     std::string wav_in = po.GetArg(1);
     std::string wav_out = po.GetArg(2);
-    std::string txt_out = po.GetArg(3);
-    std::string s_th = po.GetArg(4);
-    std::string min_d = po.GetArg(5);
+    std::string s_th = po.GetArg(3);
+    std::string min_d = po.GetArg(4);
     //change smooth_threshold to float
     float smooth_threshold = std::stof(s_th);
     //change min_duration to float
@@ -159,10 +158,6 @@ int main(int argc, char *argv[]) {
         file_index++;
         free(speech_data);
 
-        // 写入txt_out中的片段信息
-        std::ofstream txt_file(txt_out, std::ios_base::app); // 以追加模式打开
-        txt_file << "Speech: " << start_time << "s to " << end_time << "s" << std::endl;
-        txt_file.close();
         
 
     }

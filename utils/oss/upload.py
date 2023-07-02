@@ -9,7 +9,7 @@ from minio.retention import Retention
 from datetime import datetime
 from minio import Minio
 from datetime import timedelta
-
+import os
 import cfg
 
 HOST = f"{cfg.MINIO['host']}:{cfg.MINIO['port']}"
@@ -39,3 +39,22 @@ def upload_file(
             legal_hold=True,
         )
     return f"http://{HOST}/{bucket_name}/{filename}"
+
+def upload_files(
+    bucket_name="testing",
+    files=[],
+    save_days=30,
+):
+    urls = []
+    for filepath in files:
+        filename = filepath.split("/")[-1]
+        upload_file(bucket_name, filepath, filename, save_days)
+        urls.append(f"http://{HOST}/{bucket_name}/{filename}")
+
+    return urls
+
+def remove_urls_from_bucket(bucket_name="testing",urls=[]):
+    for url in urls:
+        filename = url.split("/")[-1]
+        client.remove_object(bucket_name, filename)
+    return True

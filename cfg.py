@@ -3,7 +3,7 @@
 # @Author  : zhaosheng@nuaa.edu.cn
 
 WORKERS = 4
-SR = 8000
+SR = 16000
 WAV_START=0
 WAV_LENGTH=999
 TIME_TH = 2
@@ -17,8 +17,9 @@ MAX_WAV_NUMBER = 10
 ENCODE_MODEL_LIST = ["ECAPATDNN"]#, "CAMPP"]  #  ,"CAMPP"
 BLACK_TH = {"ECAPATDNN": 0.78, "CAMPP": 0.78}
 EMBEDDING_LEN = {"ECAPATDNN": 192, "CAMPP": 512}
+MODEL_PATH = {"ECAPATDNN":"/VAF/src/nn/ECAPATDNN","CAMPP":"/VAF/src/nn/CAMPP"}
 TEMP_PATH = "/tmp"
-
+damo="/home/zhaosheng/asr_damo_websocket/online/damo"
 #######################################################
 ####################  Databases #######################
 #######################################################

@@ -9,7 +9,7 @@ import cfg
 
 
 emb = SpeakerRecognition.from_hparams(
-    source="./ECAPATDNN",
+    source=cfg.MODEL_PATH["ECAPATDNN"],
     savedir=f"./pretrained_models/ECAPATDNN",
     run_opts={"device": cfg.DEVICE},
 )
